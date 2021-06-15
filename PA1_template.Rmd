@@ -56,7 +56,7 @@ with(interval, plot(interval,steps,
   
 The figure above illustrates the average daily activity pattern based on the original data set.  
 
-From the figure and data, the five minute interval starting at **`r format(interval$interval[which.max(interval$steps)],nsmall=2, big.mark="'")`** shows the highest number of **`r max(interval$steps)`** steps taken on average across all days recorded.  
+From the figure and data, the five minute interval starting at **`r format(interval$interval[which.max(interval$steps)],nsmall=2, big.mark="'")`** shows the highest number of **`r format(round(max(interval$steps),2),nsmall=2,big.mark=",")`** steps taken on average across all days recorded.  
 
 ## Imputing missing values  
 ``` {r Imputing Missing Values, message=FALSE, fig.width=8}

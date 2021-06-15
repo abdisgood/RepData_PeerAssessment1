@@ -54,7 +54,7 @@ with(interval, plot(interval,steps,
   
 The figure above illustrates the average daily activity pattern based on the original data set.  
 
-From the figure and data, the five minute interval starting at **835** shows the highest number of **206.1698113** steps taken on average across all days recorded.  
+From the figure and data, the five minute interval starting at **835** shows the highest number of **206.17** steps taken on average across all days recorded.  
 
 ## Imputing missing values  
 
@@ -86,9 +86,9 @@ median_change <- steps_median_im - steps_median
 ```
 There are a total of **2,304** missing values in the data set. These have been imputed using Multivariate Imputations by Chained Equations based on the mean function.  
 
-After imputing missing values, the *average* number of steps taken per day is **10,527.46** - indicating a shift of *-238.73* as compared with the original data set.  
+After imputing missing values, the *average* number of steps taken per day is **10,650.21** - indicating a shift of *-115.98* as compared with the original data set.  
 
-The *median* number of steps taken is **10,439.00** - which represents a shift of *-326.00* as compared with the original data set.  
+The *median* number of steps taken is **10,618.00** - which represents a shift of *-147.00* as compared with the original data set.  
 
 The histogram showing number of steps taken per day for the imputed data set is illustrated below.  
 
