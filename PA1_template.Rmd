@@ -37,10 +37,10 @@ hist(sum$steps,
 
 ```
   
-The average number of steps taken per day is `r format(round(steps_mean, 2), nsmall=2, big.mark = ",")` and the median number of steps is `r format(round(steps_median, 2), nsmall=2, big.mark = ",")`.  
+The *average* number of steps taken per day is **`r format(round(steps_mean, 2), nsmall=2, big.mark = ",")`** and the *median* number of steps is **`r format(round(steps_median, 2), nsmall=2, big.mark = ",")`**.  
 
 ## What is the average daily activity pattern?  
-The figure below illustrates the average daily activity pattern based on the original data set.  
+
 ```{r Average Daily Activity Pattern, fig.width=8}
 interval <- data%>%group_by(interval)%>%
         summarize(steps=mean(steps, na.rm=T))
@@ -52,8 +52,12 @@ with(interval, plot(interval,steps,
                     xlab = "Time Interval",
                     ylab = "Average Number of Steps")
 )
-```
+```  
   
+The figure above illustrates the average daily activity pattern based on the original data set.  
+
+From the figure and data, the five minute interval starting at **`r format(interval$interval[which.max(interval$steps)],nsmall=2, big.mark="'")`** shows the highest number of **`r max(interval$steps)`** steps taken on average across all days recorded.  
+
 ## Imputing missing values  
 ``` {r Imputing Missing Values, message=FALSE, fig.width=8}
 data_na <- sum(is.na(data$steps))
@@ -77,11 +81,11 @@ steps_median_im <- median(sum_im$steps,na.rm=T)
 mean_change <- steps_mean_im - steps_mean
 median_change <- steps_median_im - steps_median
 ```
-There are a total of `r data_na` missing values in the data set. These have been imputed using Multivariate Imputations by Chained Equations based on the mean function.  
+There are a total of **`r format(data_na, big.mark=",")`** missing values in the data set. These have been imputed using Multivariate Imputations by Chained Equations based on the mean function.  
 
-After imputing missing values, the average number of steps taken per day is `r format(round(steps_mean_im, 2), nsmall=2, big.mark = ",")` - indicating a shift of `r format(round(mean_change, 2), nsmall=2, big.mark = ",")` as compared with the original data set.  
+After imputing missing values, the *average* number of steps taken per day is **`r format(round(steps_mean_im, 2), nsmall=2, big.mark = ",")`** - indicating a shift of *`r format(round(mean_change, 2), nsmall=2, big.mark = ",")`* as compared with the original data set.  
 
-The median number of steps taken is `r format(round(steps_median_im, 2), nsmall=2, big.mark = ",")` - which represents a shift of `r format(round(median_change, 2), nsmall=2, big.mark = ",")` as compared with the original data set.  
+The *median* number of steps taken is **`r format(round(steps_median_im, 2), nsmall=2, big.mark = ",")`** - which represents a shift of *`r format(round(median_change, 2), nsmall=2, big.mark = ",")`* as compared with the original data set.  
 
 The histogram showing number of steps taken per day for the imputed data set is illustrated below.  
 

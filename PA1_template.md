@@ -32,10 +32,10 @@ hist(sum$steps,
 
 ![](PA1_template_files/figure-html/Mean-1.png)<!-- -->
   
-The average number of steps taken per day is 10,766.19 and the median number of steps is 10,765.00.  
+The *average* number of steps taken per day is **10,766.19** and the *median* number of steps is **10,765.00**.  
 
 ## What is the average daily activity pattern?  
-The figure below illustrates the average daily activity pattern based on the original data set.  
+
 
 ```r
 interval <- data%>%group_by(interval)%>%
@@ -52,6 +52,10 @@ with(interval, plot(interval,steps,
 
 ![](PA1_template_files/figure-html/Average Daily Activity Pattern-1.png)<!-- -->
   
+The figure above illustrates the average daily activity pattern based on the original data set.  
+
+From the figure and data, the five minute interval starting at **835** shows the highest number of **206.1698113** steps taken on average across all days recorded.  
+
 ## Imputing missing values  
 
 ```r
@@ -80,11 +84,11 @@ steps_median_im <- median(sum_im$steps,na.rm=T)
 mean_change <- steps_mean_im - steps_mean
 median_change <- steps_median_im - steps_median
 ```
-There are a total of 2304 missing values in the data set. These have been imputed using Multivariate Imputations by Chained Equations based on the mean function.  
+There are a total of **2,304** missing values in the data set. These have been imputed using Multivariate Imputations by Chained Equations based on the mean function.  
 
-After imputing missing values, the average number of steps taken per day is 10,669.89 - indicating a shift of -96.30 as compared with the original data set.  
+After imputing missing values, the *average* number of steps taken per day is **10,527.46** - indicating a shift of *-238.73* as compared with the original data set.  
 
-The median number of steps taken is 10,571.00 - which represents a shift of -194.00 as compared with the original data set.  
+The *median* number of steps taken is **10,439.00** - which represents a shift of *-326.00* as compared with the original data set.  
 
 The histogram showing number of steps taken per day for the imputed data set is illustrated below.  
 
